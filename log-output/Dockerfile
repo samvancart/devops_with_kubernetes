@@ -2,6 +2,8 @@ FROM node:alpine
 
 WORKDIR usr/src/app
 
+RUN adduser -S appuser
+
 COPY package* ./
 
 RUN npm ci
