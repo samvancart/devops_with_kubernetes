@@ -8,5 +8,7 @@ RUN npm ci
 
 COPY . .
 
+USER appuser
+
 CMD ["npm", "start"]
 
