@@ -72,15 +72,15 @@ deployment.apps/project created
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
 $ kubectl get deployments
 NAME         READY   UP-TO-DATE   AVAILABLE   AGE
-log-output   1/1     1            1           28m
-project      0/1     1            0           3s
+log-output   1/1     1            1           34m
+project      1/1     1            1           5m36s
 ```
 ```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
 $ kubectl get pods
-NAME                          READY   STATUS              RESTARTS   AGE
-log-output-75f68ddfb7-ftxwc   1/1     Running             0          29m
-project-d7889bdf7-7q4gt       0/1     ContainerCreating   0          19s
+NAME                          READY   STATUS    RESTARTS   AGE
+log-output-75f68ddfb7-ftxwc   1/1     Running   0          34m
+project-d7889bdf7-7q4gt       1/1     Running   0          5m46s
 ```
 ```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
