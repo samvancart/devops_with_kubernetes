@@ -61,5 +61,35 @@ $ kubectl logs -f log-output-75f68ddfb7-ftxwc
 2022-06-01T13:10:46.814Z: se3iwwd7zjs
 ```
 
-# 1.02
+# 1.02 (Project v0.1)
 
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl create deployment project --image=samvancart/project:0.1
+deployment.apps/project created
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get deployments
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+log-output   1/1     1            1           28m
+project      0/1     1            0           3s
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get pods
+NAME                          READY   STATUS              RESTARTS   AGE
+log-output-75f68ddfb7-ftxwc   1/1     Running             0          29m
+project-d7889bdf7-7q4gt       0/1     ContainerCreating   0          19s
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl logs -f project-d7889bdf7-7q4gt
+
+> project@1.0.0 start
+> node server/index.js
+
+Server started in port 3000
+```
+
+# 1.03
