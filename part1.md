@@ -1,7 +1,7 @@
-## 1.01
-
+# 1.01
+```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main) 
-    $ k3d cluster create -a 2
+$ k3d cluster create -a 2
 INFO[0000] Prep: Network
 INFO[0000] Created network 'k3d-k3s-default'
 INFO[0000] Created image volume k3d-k3s-default-images  
@@ -29,21 +29,25 @@ INFO[0077] Injecting records for hostAliases (incl. host.k3d.internal) and for 5
 INFO[0079] Cluster 'k3s-default' created successfully!  
 INFO[0079] You can now use it like this:
 kubectl cluster-info
-
+```
+```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
 $ kubectl create deployment log-output --image=samvancart/log-output:1.01
 deployment.apps/log-output created
-
+```
+```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
 $ kubectl get deployments
 NAME         READY   UP-TO-DATE   AVAILABLE   AGE
 log-output   0/1     1            0           50s
-
+```
+```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
 $ kubectl get pods
 NAME                          READY   STATUS    RESTARTS   AGE
 log-output-75f68ddfb7-ftxwc   1/1     Running   0          74s
-
+```
+```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
 $ kubectl logs -f log-output-75f68ddfb7-ftxwc
 
@@ -55,6 +59,7 @@ $ kubectl logs -f log-output-75f68ddfb7-ftxwc
 2022-06-01T13:10:36.802Z: se3iwwd7zjs
 2022-06-01T13:10:41.808Z: se3iwwd7zjs
 2022-06-01T13:10:46.814Z: se3iwwd7zjs
+```
 
-## 1.02
+# 1.02
 
