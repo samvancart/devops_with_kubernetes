@@ -93,3 +93,40 @@ Server started in port 3000
 ```
 
 # 1.03
+
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl delete deployment log-output
+deployment.apps "log-output" deleted
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl apply -f log-output/manifests/deployment.yaml 
+deployment.apps/log-output created
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get deployments
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+project      1/1     1            1           18h
+log-output   1/1     1            1           4s
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get pods
+NAME                          READY   STATUS    RESTARTS      AGE
+project-d7889bdf7-7q4gt       1/1     Running   1 (28m ago)   18h
+log-output-75f68ddfb7-4r9sm   1/1     Running   0             12s
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl logs -f log-output-75f68ddfb7-4r9sm
+
+> log-output@1.0.0 start
+> node index.js
+
+2022-06-02T08:36:44.879Z: mqybbv4uqvp
+2022-06-02T08:36:49.886Z: mqybbv4uqvp
+2022-06-02T08:36:54.892Z: mqybbv4uqvp
+```
+# 1.04 (Project v0.2)
