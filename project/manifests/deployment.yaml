@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: log-output
+  name: project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: log-output
+      app: project
   template:
     metadata:
       labels:
-        app: log-output
+        app: project
     spec:
       containers:
-        - name: log-output
-          image: samvancart/log-output:1.03
+        - name: project
+          image: samvancart/project:0.2
