@@ -130,3 +130,33 @@ $ kubectl logs -f log-output-75f68ddfb7-4r9sm
 2022-06-02T08:36:54.892Z: mqybbv4uqvp
 ```
 # 1.04 (Project v0.2)
+
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl apply -f project/manifests/deployment.yaml
+Warning: resource deployments/project is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively by either kubectl create --save-config or kubectl apply. The missing annotation will be patched automatically.
+deployment.apps/project configured
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get deployments
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+log-output   1/1     1            1           24h
+project      1/1     1            1           43h
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get pods
+NAME                          READY   STATUS    RESTARTS      AGE
+log-output-6fcc4c6857-8p99b   1/1     Running   1 (23m ago)   24h
+project-84b6cf9bfb-zjxpx      1/1     Running   0             25s
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl logs -f project-84b6cf9bfb-zjxpx
+
+> project@1.0.0 start
+> node server/index.js
+
+Server started in port 3000
+```
