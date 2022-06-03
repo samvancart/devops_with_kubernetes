@@ -161,3 +161,23 @@ $ kubectl logs -f project-84b6cf9bfb-zjxpx
 Server started in port 3000
 ```
 # 1.05 (Project v0.3)
+
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get pods
+NAME                          READY   STATUS    RESTARTS        AGE
+log-output-6fcc4c6857-8p99b   1/1     Running   1 (4h56m ago)   28h
+project-5fd5c55c5-rpgqw       1/1     Running   0               9m15s
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl port-forward project-5fd5c55c5-rpgqw 3000:3000
+Forwarding from 127.0.0.1:3000 -> 3000
+Forwarding from [::1]:3000 -> 3000
+Handling connection for 3000
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~
+$ curl http://localhost:3000
+Hello from server!
+```
