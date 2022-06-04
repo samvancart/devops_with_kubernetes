@@ -181,3 +181,66 @@ Sam@Sam-PC2 MINGW64 ~
 $ curl http://localhost:3000
 Hello from server!
 ```
+# 1.06 (Project v0.4)
+
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2
+INFO[0000] portmapping '8081:80' targets the loadbalancer: defaulting to [servers:*:proxy agents:*:proxy] 
+INFO[0000] Prep: Network
+INFO[0000] Created network 'k3d-k3s-default'
+INFO[0000] Created image volume k3d-k3s-default-images  
+INFO[0000] Starting new tools node...
+INFO[0001] Creating node 'k3d-k3s-default-server-0'     
+INFO[0001] Starting Node 'k3d-k3s-default-tools'        
+INFO[0003] Creating node 'k3d-k3s-default-agent-0'      
+INFO[0005] Creating node 'k3d-k3s-default-agent-1'      
+INFO[0006] Creating LoadBalancer 'k3d-k3s-default-serverlb' 
+INFO[0007] Using the k3d-tools node to gather environment information 
+INFO[0009] Starting new tools node...
+INFO[0010] Starting Node 'k3d-k3s-default-tools'        
+INFO[0012] Starting cluster 'k3s-default'
+INFO[0012] Starting servers...
+INFO[0012] Starting Node 'k3d-k3s-default-server-0'     
+INFO[0019] Starting agents...
+INFO[0019] Starting Node 'k3d-k3s-default-agent-1'      
+INFO[0020] Starting Node 'k3d-k3s-default-agent-0'      
+INFO[0030] Starting helpers...
+INFO[0030] Starting Node 'k3d-k3s-default-serverlb'     
+INFO[0038] Injecting records for hostAliases (incl. host.k3d.internal) and for 5 network members into CoreDNS configmap... 
+INFO[0040] Cluster 'k3s-default' created successfully!  
+INFO[0040] You can now use it like this:
+kubectl cluster-info
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl apply -f project/manifests/deployment.yaml
+deployment.apps/project created
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl apply -f project/manifests/deployment.yaml
+deployment.apps/project created
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get deployments
+NAME      READY   UP-TO-DATE   AVAILABLE   AGE
+project   1/1     1            1           12m
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl get pods
+NAME                       READY   STATUS    RESTARTS   AGE
+project-5fccfff8c4-lcqdc   1/1     Running   0          2m28s
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ kubectl apply -f project/manifests/service.yaml
+service/project created
+```
+```sh
+Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
+$ curl http://localhost:8082
+Hello from server!
+```
