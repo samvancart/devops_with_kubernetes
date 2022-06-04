@@ -219,11 +219,6 @@ deployment.apps/project created
 ```
 ```sh
 Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
-$ kubectl apply -f project/manifests/deployment.yaml
-deployment.apps/project created
-```
-```sh
-Sam@Sam-PC2 MINGW64 ~/Documents/YO/kubernetes (main)
 $ kubectl get deployments
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
 project   1/1     1            1           12m
